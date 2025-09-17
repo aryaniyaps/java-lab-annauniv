@@ -4,4 +4,20 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+        <servlet-name>CreateStudentServlet</servlet-name>
+        <servlet-class>com.example.CreateStudentServlet</servlet-class>
+    </servlet>
+      <servlet>
+        <servlet-name>UpdateStudentServlet</servlet-name>
+        <servlet-class>com.example.UpdateStudentServlet</servlet-class>
+    </servlet>
+      <servlet>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <servlet-class>com.example.DeleteStudentServlet</servlet-class>
+    </servlet>
+  <servlet>
+        <servlet-name>ViewStudentsServlet</servlet-name>
+        <servlet-class>com.example.ViewStudentsServlet</servlet-class>
+    </servlet>
 </web-app>
