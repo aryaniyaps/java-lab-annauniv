@@ -10,8 +10,8 @@ public class DBConnection {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/student_db",
-                "your_pg_username",
-                "your_pg_password"
+                "postgres",
+                "pass"
             );
         } catch (Exception e) {
             e.printStackTrace();

@@ -17,8 +17,8 @@
             Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/student_db", 
-                "your_pg_username", 
-                "your_pg_password"
+                "postgres", 
+                "pass"
             );
             PreparedStatement ps = con.prepareStatement("INSERT INTO students (name, email) VALUES (?, ?)");
             ps.setString(1, name);

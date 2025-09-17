@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/updateStudent")
-public class UpdateStudentServlet extends HttpServlet {
+@WebServlet("/createStudent")
+public class CreateStudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
@@ -21,16 +21,16 @@ public class UpdateStudentServlet extends HttpServlet {
         String email = req.getParameter("email");
 
         try (Connection con = DBConnection.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("UPDATE students SET name=?, email=? WHERE id=?");
-            ps.setString(1, name);
-            ps.setString(2, email);
-            ps.setInt(3, Integer.parseInt(id));
+            PreparedStatement ps = con.prepareStatement("INSERT INTO students (id, name, email) VALUES (?, ?, ?)");
+            ps.setInt(1, Integer.parseInt(id));
+            ps.setString(2, name);
+            ps.setString(3, email);
 
             int rows = ps.executeUpdate();
             if (rows > 0) {
-                out.println("<p>Student updated successfully!</p>");
+                out.println("<p>Student created successfully!</p>");
             } else {
-                out.println("<p>No student found.</p>");
+                out.println("<p>Could not create student.</p>");
             }
         } catch (Exception e) {
             out.println("Error: " + e.getMessage());
